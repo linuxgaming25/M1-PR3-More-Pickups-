@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class AmmoBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameBehavior gameManager;
+
+    void Start()
+    {
+        
+    }
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
         {
             Destroy(this.transform.parent.gameObject);
 
-            Debug.Log("Ammo collected!");
+            Debug.Log("Ammo!");
+            gameManager.Ammo += 5;
         }
     }
 }

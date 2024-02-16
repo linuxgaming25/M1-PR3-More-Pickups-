@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class ShieldBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameBehavior gameManager;
+
+    void Start()
+    {
+        
+    }
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
         {
             Destroy(this.transform.parent.gameObject);
 
-            Debug.Log("Shield collected!");
+            Debug.Log("Shield charged!");
+            gameManager.Shield += 15;
         }
     }
 }
